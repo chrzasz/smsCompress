@@ -16,7 +16,6 @@ public class Runner {
 
     public static void main(String[] args) {
 
-
         String inputStr = "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the " +
                 "numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing" +
                 " characters are rarely used for their original purpose. Below is the ASCII character table and this includes descriptions of the first 32 " +
@@ -42,15 +41,16 @@ public class Runner {
 
         String[] pag1 = pag.paginate(s);
 
-//        // show pagination
-//        for (String st : pag1) {
-//            System.out.println(st);
-//        }
+        // show pagination
+        int cnt = 0;
+        for (String st : pag1) {
+            System.out.print("SMS no." + (++cnt) + " = ");
+            System.out.println(st);
+        }
 
         int smsCount = pag1.length;
-        System.out.println("");
-
-        System.out.println("\n>>>>>> Total SMS costs = " + costCalc.calculate(smsCount).toString() + " <<<<<<");
+        System.out.println("\n>>>>>> Total SMS count = " + smsCount + " <<<<<<");
+        System.out.println(">>>>>> Total SMS costs = " + costCalc.calculate(smsCount).toString() + " <<<<<<");
 
         System.out.println("\n---Decompressed text:-----------------------------------------------");
         s = nc.decompress(s);

@@ -38,7 +38,7 @@ public class Paginator {
 
             for (int i = 0; i < textLenght; i += smsLenght) {
                 outStrTab[idx++] = text.substring(i, Math.min(i + smsLenght, textLenght));
-//                System.out.println(text.substring(i, Math.min(i + smsLenght, textLenght)));
+//                System.out.println("SMS no." + ((i/smsLenght)+1) + " = " +text.substring(i, Math.min(i + smsLenght, textLenght)));
             }
         }
 
