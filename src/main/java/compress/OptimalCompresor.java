@@ -5,13 +5,23 @@ package compress;
  */
 public class OptimalCompresor implements Compresor{
 
+    public OptimalCompresor() {
+    }
+
     @Override
     public String compress(String inputStr) {
-        return null;
+
+        Smaz smaz = new Smaz();
+        byte[] compressed = smaz.compress(inputStr);
+        return compressed.toString();
     }
 
     @Override
     public String decompress(String inputStr) {
-        return null;
+
+        Smaz smaz = new Smaz();
+        byte[] compressed = smaz.compress(inputStr);
+        String uncompressedString = smaz.decompress(compressed);
+        return uncompressedString;
     }
 }

@@ -1,10 +1,9 @@
 import compress.NaiveCompresor;
+import compress.OptimalCompresor;
 import costs.CostCalculator;
 import paginator.Paginator;
 
 import java.math.BigDecimal;
-import java.util.*;
-import java.util.stream.*;
 
 /**
  * Created by Grzegorz Chrzaszczyk on 01-12-2018  11:01 AM
@@ -57,6 +56,11 @@ public class Runner {
         s = nc.decompress(s);
         System.out.println(s);
         System.out.println("---No of characters in decompressed text = " + s.length());
+
+
+        OptimalCompresor oc = new OptimalCompresor();
+        s = oc.compress(s);
+        System.out.println(s);
 
     }
 
