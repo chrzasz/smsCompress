@@ -29,14 +29,14 @@ public class CostTest {
     private Object[] calcValues() {
         return new Object[]{   //unitPrice, numberOfMessages, expectedValue
                 //Note: valueOf is not the same as new
-                new Object[]{new BigDecimal(0), 0, new BigDecimal(0)},
-                new Object[]{new BigDecimal(0), 1, new BigDecimal(0)},
-                new Object[]{new BigDecimal(0), -1, new BigDecimal(0)},
-                new Object[]{new BigDecimal(0), -1000, new BigDecimal(0)},
-                new Object[]{new BigDecimal(0), 1000, new BigDecimal(0)},
-                new Object[]{new BigDecimal(3), 10, new BigDecimal(30)},
-                new Object[]{new BigDecimal(0.3), 10, new BigDecimal(3)},
-                new Object[]{BigDecimal.valueOf(0.3), 10, BigDecimal.valueOf(3.00)},
+                new Object[]{new BigDecimal("0.00"), 0, new BigDecimal("0.00")},
+                new Object[]{new BigDecimal("0.00"), 1, new BigDecimal("0.00")},
+                new Object[]{new BigDecimal("0.00"), -1, new BigDecimal("0.00")},
+                new Object[]{new BigDecimal("0.00"), -1000, new BigDecimal("0.00")},
+                new Object[]{new BigDecimal("0.00"), 1000, new BigDecimal("0.00")},
+                new Object[]{new BigDecimal("3.00"), 10, new BigDecimal("30.00")},
+                new Object[]{new BigDecimal("0.99"), 10, new BigDecimal("9.90")},
+                new Object[]{new BigDecimal("-0.33"), 10, new BigDecimal("0.00")},
 
         };
     }

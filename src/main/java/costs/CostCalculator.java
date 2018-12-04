@@ -25,17 +25,13 @@ public class CostCalculator {
 
     public BigDecimal calculate(Integer smsCount) {
 
-        BigDecimal calc = BigDecimal.valueOf(0);
+        BigDecimal calc = new BigDecimal("0.00");
 
-        if (smsCount > 0) {
+        if ((smsCount > 0) && (getUnitPrice().compareTo(BigDecimal.ZERO) >= 0)) {
             calc = getUnitPrice()
                     .setScale(2, RoundingMode.HALF_UP)
-                    .multiply(BigDecimal.valueOf(smsCount));
+                    .multiply(new BigDecimal(smsCount.toString()));
         }
-
-
-
-
         return calc;
     }
 
