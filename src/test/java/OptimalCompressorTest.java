@@ -52,6 +52,14 @@ public class OptimalCompressorTest {
     }
 
     @Test
+    public void nonAsciiTest() {
+        String testString = "Réal";
+        byte[] compressed = smaz.compress(testString);
+        String uncompressedString = smaz.decompress(compressed);
+        assertEquals(testString, uncompressedString);
+    }
+
+    @Test
     // minus a few that were off by 1 from the c version but match the ruby one
     public void originalSmazCTest() {
         String[] strings = {
