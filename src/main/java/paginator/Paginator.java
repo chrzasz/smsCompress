@@ -7,11 +7,12 @@ public class Paginator {
 
     private int smsLenght;
 
-    public Paginator(int smsLenght) {
+    public Paginator(int smsLenght) throws IllegalArgumentException {
         if (smsLenght > 0) {
             this.smsLenght = smsLenght;
         } else {
             this.smsLenght = 0;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -29,15 +30,14 @@ public class Paginator {
             return null;
         }
 
-        int textLenght = text.length();
-        int splitSize = textLenght / smsLenght;
+        int splitSize = text.length() / smsLenght;
         String[] outStrTab = new String[splitSize + 1];
         int idx = 0;
 
         if (splitSize > 1) {
 
-            for (int i = 0; i < textLenght; i += smsLenght) {
-                outStrTab[idx++] = text.substring(i, Math.min(i + smsLenght, textLenght));
+            for (int i = 0; i < text.length(); i += smsLenght) {
+                outStrTab[idx++] = text.substring(i, Math.min(i + smsLenght, text.length()));
 //                System.out.println("SMS no." + ((i/smsLenght)+1) + " = " +text.substring(i, Math.min(i + smsLenght, textLenght)));
             }
         }
