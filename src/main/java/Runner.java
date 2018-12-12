@@ -9,13 +9,15 @@ import java.math.BigDecimal;
 /**
  * Created by Grzegorz Chrzaszczyk on 01-12-2018  11:01 AM
  */
-public class Runner {
 
+
+public class Runner {
 
     private static final String SMS_COST = "0.99";
     private static final int SMS_LENGTH = 100;
 
     public static void main(String[] args) {
+
 
         String inputStr = "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the " +
                 "numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing" +

@@ -1,6 +1,7 @@
 package compress;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Base64;
 
 /**
@@ -8,31 +9,23 @@ import java.util.Base64;
  */
 public class OptimalCompresor implements Compresor {
 
-    public OptimalCompresor() {
+    Smaz smaz = new Smaz();
 
-//        Smaz smaz = new Smaz();
-//        String testString = "this is a simple test";
-//        byte[] compressed = smaz.compress(testString);
-//        String uncompressedString = smaz.decompress(compressed);
-//        assertEquals(testString, uncompressedString);
+    public OptimalCompresor() {
     }
 
     @Override
     public String compress(String inputStr) {
 
-        Smaz smaz = new Smaz();
         byte[] compressed = smaz.compress(inputStr);
-//        return compressed.toString(); //shows only byte value!
-        //Convert byte[] to String using String constructor
-        String str = new String(compressed, StandardCharsets.UTF_8);
+        String str = new String(compressed, StandardCharsets.ISO_8859_1);
         return str;
     }
 
     @Override
     public String decompress(String inputStr) {
 
-        Smaz smaz = new Smaz();
-        byte[] bytes = inputStr.getBytes(StandardCharsets.UTF_8);
+        byte[] bytes = inputStr.getBytes(StandardCharsets.ISO_8859_1);
         //Base64 Decoded
 //        byte[] bytes = Base64.getDecoder().decode(inputStr);
         String uncompressedString = smaz.decompress(bytes);
@@ -41,14 +34,12 @@ public class OptimalCompresor implements Compresor {
 
     public byte[] compressByte(String inputStr) {
 
-        Smaz smaz = new Smaz();
         byte[] compressed = smaz.compress(inputStr);
         return compressed;
     }
 
     public String decompressByte(byte[] bytes) {
 
-        Smaz smaz = new Smaz();
         String uncompressedString = smaz.decompress(bytes);
         return uncompressedString;
     }
@@ -60,7 +51,7 @@ public class OptimalCompresor implements Compresor {
         String str = "Hello World";
 
         byte[] bytes = str.getBytes();
-        byte[] byteArr = str.getBytes(StandardCharsets.UTF_8);
+        byte[] byteArr = str.getBytes(StandardCharsets.ISO_8859_1);
 
         //Convert byte[] to String
         String s = new String(bytes);
@@ -91,7 +82,7 @@ public class OptimalCompresor implements Compresor {
 
         System.out.println("Text : " + example + "\t\t\t\tsize = " + example.length());
         System.out.println("Text [Byte Format] : " + bytes + "\t\tsize = " + bytes.length);
-        System.out.println("Text [Byte Format] : " + bytes.toString() + "\t\tsize = " + bytes.toString().length());
+        System.out.println("Text [Byte Format] : " + Arrays.toString(bytes) + "\t\tsize = " + Arrays.toString(bytes).length());
 
         String ss = new String(bytes);
         System.out.println("Text Decrypted : " + ss);
